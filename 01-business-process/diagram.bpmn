@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_19tdcfp" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.1.1">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_19tdcfp" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.3.1">
   <bpmn:collaboration id="Collaboration_1nddstp">
     <bpmn:participant id="Participant_144v85p" name="Student&#39;s Bank                                                    Student                                                                School&#39;s information system" processRef="Process_02ki329" />
     <bpmn:textAnnotation id="TextAnnotation_1w6s86p">
@@ -215,7 +215,7 @@
       <bpmndi:BPMNShape id="Gateway_1ukjevz_di" bpmnElement="Gateway_1ukjevz" isMarkerVisible="true">
         <dc:Bounds x="615" y="246" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="651" y="313" width="17" height="14" />
+          <dc:Bounds x="651" y="214" width="17" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0o7eay8_di" bpmnElement="Activity_0o7eay8">
@@ -365,7 +365,7 @@
         <di:waypoint x="2510" y="101" />
         <di:waypoint x="2510" y="450" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="649" y="213" width="22" height="14" />
+          <dc:Bounds x="649" y="303" width="22" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0hb4xz2_di" bpmnElement="Flow_0hb4xz2">
@@ -492,22 +492,22 @@
         <di:waypoint x="1490" y="586" />
         <di:waypoint x="1490" y="650" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_16l5kkm_di" bpmnElement="Association_16l5kkm">
-        <di:waypoint x="658" y="264" />
-        <di:waypoint x="710" y="238" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1w6s86p_di" bpmnElement="TextAnnotation_1w6s86p">
         <dc:Bounds x="1440" y="650" width="100.00001050519042" height="30.005738985517965" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0uy6ov1_di" bpmnElement="TextAnnotation_0uy6ov1">
-        <dc:Bounds x="1820" y="730" width="100" height="41" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1bnk688_di" bpmnElement="TextAnnotation_1bnk688">
         <dc:Bounds x="710" y="200" width="100" height="41" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0uy6ov1_di" bpmnElement="TextAnnotation_0uy6ov1">
+        <dc:Bounds x="1820" y="730" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_16l5kkm_di" bpmnElement="Association_16l5kkm">
+        <di:waypoint x="658" y="264" />
+        <di:waypoint x="710" y="238" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

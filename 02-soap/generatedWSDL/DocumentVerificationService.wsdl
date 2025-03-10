@@ -8,32 +8,33 @@ JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e5
     xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.university.com/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
-    targetNamespace="http://services.university.com/" name="PaymentProcessingServiceImplService">
+    targetNamespace="http://services.university.com/" name="DocumentVerificationServiceImplService">
     <types>
         <xsd:schema>
             <xsd:import namespace="http://services.university.com/"
-                schemaLocation="http://localhost:8080/PaymentProcessingService?xsd=1"></xsd:import>
+                schemaLocation="http://localhost:8080/DocumentVerificationService?xsd=1"></xsd:import>
         </xsd:schema>
     </types>
-    <message name="processPayment">
-        <part name="parameters" element="tns:processPayment"></part>
+    <message name="verifyDocuments">
+        <part name="parameters" element="tns:verifyDocuments"></part>
     </message>
-    <message name="processPaymentResponse">
-        <part name="parameters" element="tns:processPaymentResponse"></part>
+    <message name="verifyDocumentsResponse">
+        <part name="parameters" element="tns:verifyDocumentsResponse"></part>
     </message>
-    <portType name="PaymentProcessingService">
-        <operation name="processPayment">
+    <portType name="DocumentVerificationService">
+        <operation name="verifyDocuments">
             <input
-                wsam:Action="http://services.university.com/PaymentProcessingService/processPaymentRequest"
-                message="tns:processPayment"></input>
+                wsam:Action="http://services.university.com/DocumentVerificationService/verifyDocumentsRequest"
+                message="tns:verifyDocuments"></input>
             <output
-                wsam:Action="http://services.university.com/PaymentProcessingService/processPaymentResponse"
-                message="tns:processPaymentResponse"></output>
+                wsam:Action="http://services.university.com/DocumentVerificationService/verifyDocumentsResponse"
+                message="tns:verifyDocumentsResponse"></output>
         </operation>
     </portType>
-    <binding name="PaymentProcessingServiceImplPortBinding" type="tns:PaymentProcessingService">
+    <binding name="DocumentVerificationServiceImplPortBinding"
+        type="tns:DocumentVerificationService">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-        <operation name="processPayment">
+        <operation name="verifyDocuments">
             <soap:operation soapAction=""></soap:operation>
             <input>
                 <soap:body use="literal"></soap:body>
@@ -43,10 +44,10 @@ JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e5
             </output>
         </operation>
     </binding>
-    <service name="PaymentProcessingServiceImplService">
-        <port name="PaymentProcessingServiceImplPort"
-            binding="tns:PaymentProcessingServiceImplPortBinding">
-            <soap:address location="http://localhost:8080/PaymentProcessingService"></soap:address>
+    <service name="DocumentVerificationServiceImplService">
+        <port name="DocumentVerificationServiceImplPort"
+            binding="tns:DocumentVerificationServiceImplPortBinding">
+            <soap:address location="http://localhost:8080/DocumentVerificationService"></soap:address>
         </port>
     </service>
 </definitions>

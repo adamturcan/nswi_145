@@ -1,0 +1,210 @@
+<definitions
+    xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    targetNamespace="http://services.university.com/"
+    xmlns:tns="http://services.university.com/"
+    name="Services">
+
+
+    <types>
+        <xsd:schema targetNamespace="http://services.university.com/"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:element name="getVerificationStatus">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="studentId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="getVerificationStatusResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="statusMessage" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="verifyDocuments">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="studentId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="verifyDocumentsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="verificationStatus" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+
+            <xsd:element name="processPayment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="studentId" type="xsd:string" />
+                        <xsd:element name="amount" type="xsd:double" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="processPaymentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="confirmationMessage" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="refundPayment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="studentId" type="xsd:string" />
+                        <xsd:element name="refundAmount" type="xsd:double" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="refundPaymentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="refundMessage" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+
+        </xsd:schema>
+    </types>
+
+    <message name="getVerificationStatus">
+        <part name="parameters" element="tns:getVerificationStatus" />
+    </message>
+    <message name="getVerificationStatusResponse">
+        <part name="parameters" element="tns:getVerificationStatusResponse" />
+    </message>
+
+    <message name="verifyDocuments">
+        <part name="parameters" element="tns:verifyDocuments" />
+    </message>
+    <message name="verifyDocumentsResponse">
+        <part name="parameters" element="tns:verifyDocumentsResponse" />
+    </message>
+
+
+    <message name="processPayment">
+        <part name="parameters" element="tns:processPayment" />
+    </message>
+    <message name="processPaymentResponse">
+        <part name="parameters" element="tns:processPaymentResponse" />
+    </message>
+
+    <message name="refundPayment">
+        <part name="parameters" element="tns:refundPayment" />
+    </message>
+    <message name="refundPaymentResponse">
+        <part name="parameters" element="tns:refundPaymentResponse" />
+    </message>
+
+
+    <portType name="DocumentVerificationService">
+        <operation name="getVerificationStatus">
+            <input
+                wsam:Action="http://services.university.com/DocumentVerificationService/getVerificationStatusRequest"
+                message="tns:getVerificationStatus" />
+            <output
+                wsam:Action="http://services.university.com/DocumentVerificationService/getVerificationStatusResponse"
+                message="tns:getVerificationStatusResponse" />
+        </operation>
+        <operation name="verifyDocuments">
+            <input
+                wsam:Action="http://services.university.com/DocumentVerificationService/verifyDocumentsRequest"
+                message="tns:verifyDocuments" />
+            <output
+                wsam:Action="http://services.university.com/DocumentVerificationService/verifyDocumentsResponse"
+                message="tns:verifyDocumentsResponse" />
+        </operation>
+    </portType>
+
+    <portType name="PaymentProcessingService">
+        <operation name="processPayment">
+            <input message="tns:processPayment"
+                wsam:Action="http://services.university.com/PaymentProcessingService/processPaymentRequest" />
+            <output message="tns:processPaymentResponse"
+                wsam:Action="http://services.university.com/PaymentProcessingService/processPaymentResponse" />
+        </operation>
+        <operation name="refundPayment">
+            <input message="tns:refundPayment"
+                wsam:Action="http://services.university.com/PaymentProcessingService/refundPaymentRequest" />
+            <output message="tns:refundPaymentResponse"
+                wsam:Action="http://services.university.com/PaymentProcessingService/refundPaymentResponse" />
+        </operation>
+    </portType>
+
+
+    <binding name="DocumentVerificationServiceBinding" type="tns:DocumentVerificationService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="getVerificationStatus">
+            <soap:operation
+                soapAction="http://services.university.com/DocumentVerificationService/getVerificationStatus" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="verifyDocuments">
+            <soap:operation
+                soapAction="http://services.university.com/DocumentVerificationService/verifyDocuments" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+
+    <binding name="PaymentProcessingServiceBinding" type="tns:PaymentProcessingService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="processPayment">
+            <soap:operation
+                soapAction="http://services.university.com/PaymentProcessingService/processPayment" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+        <operation name="refundPayment">
+            <soap:operation
+                soapAction="http://services.university.com/PaymentProcessingService/refundPayment" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+
+    <service name="Services">
+        <port name="DocumentVerificationServicePort"
+            binding="tns:DocumentVerificationServiceBinding">
+            <soap:address location="http://localhost:8080/university/verification" />
+        </port>
+        <port name="PaymentProcessingServicePort"
+            binding="tns:PaymentProcessingServiceBinding">
+            <soap:address location="http://localhost:8080/university/payment" />
+        </port>
+    </service>
+
+</definitions>

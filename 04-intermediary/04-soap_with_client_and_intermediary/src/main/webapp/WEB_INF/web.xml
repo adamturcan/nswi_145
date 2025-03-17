@@ -1,0 +1,11 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="3.0">
+    <servlet>
+        <servlet-name>SOAPIntermediaryServlet</servlet-name>
+        <servlet-class>com.university.intermediary.SOAPIntermediaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SOAPIntermediaryServlet</servlet-name>
+        <url-pattern>/soap-intermediary</url-pattern>
+    </servlet-mapping>
+</web-app>

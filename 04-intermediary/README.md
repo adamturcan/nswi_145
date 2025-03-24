@@ -2,7 +2,7 @@
 1. SOAP Client (`com.university.client.PaymentProcessingClient.java`):
 
    - Odosiela SOAP request na `PaymentProcessingService`.
-   - Sucastou requestu je custom header `ProcessingFee`, ktory sluzy na pridanie puplatku za platbu :D
+   - Sucastou requestu je custom header `ProcessingFee`, ktory sluzy na pridanie poplatku za platbu :D
 
 2. SOAP Intermediary (`com.university.intermediary.SOAPIntermediary.java`):
 

@@ -1,0 +1,1 @@
+ - vsetky subory sa nachadzaju v adresaroch pod src/main/resources

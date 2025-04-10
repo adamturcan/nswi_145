@@ -13,3 +13,7 @@ Sluzby som upravil podla potreby zadania, teda aby kazda obsahovala 2 akcie, z t
 Implementoval som sluŽbu document service validation z predchadzajucich rieseni, no tento krat pomocou apache cxf, s pouzitim ws-security.
 overovanie je robene cez meno a heslo.
 testovaci uzivatel v programe je : testuser ; heslo123
+
+### 07-bpel
+
+implementovane na zaklade wsdl z tasku 03

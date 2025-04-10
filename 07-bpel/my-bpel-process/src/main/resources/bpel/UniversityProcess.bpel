@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="UniversityProcess"
+         targetNamespace="http://example.org/universityProcess"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+         xmlns:tns="http://services.university.com/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         suppressJoinFailure="yes"
+         exitOnStandardFault="yes">
+
+
+  <partnerLinks>
+
+    <partnerLink name="client"
+                 partnerLinkType="plnk:GenericRoleLT"
+                 myRole="clientRole" />
+
+
+    <partnerLink name="DocVerificationPartner"
+                 partnerLinkType="tns:DocumentVerificationServicePLT"
+                 myRole="UniversityProcessRole"
+                 partnerRole="DocumentVerificationServiceRole" />
+
+
+    <partnerLink name="PaymentProcessingPartner"
+                 partnerLinkType="tns:PaymentProcessingServicePLT"
+                 myRole="UniversityProcessRole"
+                 partnerRole="PaymentProcessingServiceRole" />
+  </partnerLinks>
+
+
+  <variables>
+
+    <variable name="inputGetVerification" messageType="tns:getVerificationStatus" />
+    <variable name="outputGetVerification" messageType="tns:getVerificationStatusResponse" />
+
+
+    <variable name="inputVerifyDocs" messageType="tns:verifyDocuments" />
+    <variable name="outputVerifyDocs" messageType="tns:verifyDocumentsResponse" />
+
+
+    <variable name="inputProcessPayment" messageType="tns:processPayment" />
+    <variable name="outputProcessPayment" messageType="tns:processPaymentResponse" />
+
+
+    <variable name="finalResponse" messageType="tns:getVerificationStatusResponse"/>
+  </variables>
+
+
+  <sequence name="MainSequence">
+
+
+    <receive name="receiveInit"
+             partnerLink="client"
+             operation="startUniversityProcess"
+             portType="tns:UniversityProcessPortType"
+             variable="inputGetVerification"
+             createInstance="yes" />
+
+
+    <flow>
+      <links>
+        <link name="flowLink1"/>
+        <link name="flowLink2"/>
+      </links>
+
+      <invoke name="invokeGetVerificationStatus"
+              partnerLink="DocVerificationPartner"
+              operation="getVerificationStatus"
+              inputVariable="inputGetVerification"
+              outputVariable="outputGetVerification">
+        <target linkName="flowLink1"/>
+      </invoke>
+
+      <invoke name="invokeProcessPayment"
+              partnerLink="PaymentProcessingPartner"
+              operation="processPayment"
+              inputVariable="inputProcessPayment"
+              outputVariable="outputProcessPayment">
+        <target linkName="flowLink2"/>
+      </invoke>
+    </flow>
+
+
+    <invoke name="invokeVerifyDocuments"
+            partnerLink="DocVerificationPartner"
+            operation="verifyDocuments"
+            inputVariable="inputVerifyDocs"
+            outputVariable="outputVerifyDocs"/>
+
+
+    <assign name="assignFinalResponse">
+      <copy>
+
+        <from variable="outputGetVerification" part="parameters"
+              xpath="/tns:getVerificationStatusResponse/tns:statusMessage" />
+        <to variable="finalResponse" part="parameters"
+            xpath="/tns:getVerificationStatusResponse/tns:statusMessage" />
+      </copy>
+    </assign>
+
+
+    <reply name="replyToClient"
+           partnerLink="client"
+           operation="startUniversityProcess"
+           portType="tns:UniversityProcessPortType"
+           variable="finalResponse" />
+
+  </sequence>
+</process>

@@ -1,0 +1,19 @@
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03">
+    <process name="UniversityProcess">
+
+        <provide partnerLink="client">
+            <service name="UniversityProcessService" port="UniversityProcessPort"/>
+        </provide>
+
+
+        <invoke partnerLink="DocVerificationPartner">
+            <service name="Services" port="DocumentVerificationServicePort"/>
+        </invoke>
+
+
+        <invoke partnerLink="PaymentProcessingPartner">
+            <service name="Services" port="PaymentProcessingServicePort"/>
+        </invoke>
+
+    </process>
+</deploy>

@@ -1,0 +1,7 @@
+openAPI:
+  info:
+    title: "Document Verification Service API"
+    version: "1.0"
+    description: "REST API for Document Verification Service"
+  servers:
+    - url: "/api"

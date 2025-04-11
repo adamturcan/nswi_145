@@ -2,10 +2,8 @@
 <process name="UniversityProcess"
          targetNamespace="http://example.org/universityProcess"
          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
-         xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
          xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
          xmlns:tns="http://services.university.com/"
-         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
          suppressJoinFailure="yes"
          exitOnStandardFault="yes">
 

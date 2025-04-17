@@ -17,3 +17,7 @@ testovaci uzivatel v programe je : testuser ; heslo123
 ### 07-bpel
 
 implementovane na zaklade wsdl z tasku 03
+
+### 08-rest
+
+implementovana sluzba document-verification z predchadzajucich zadani

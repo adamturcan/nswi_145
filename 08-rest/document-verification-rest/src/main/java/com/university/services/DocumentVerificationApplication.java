@@ -7,6 +7,7 @@ public class DocumentVerificationApplication extends ResourceConfig {
     public DocumentVerificationApplication() {
         packages("com.university.services",
                 "io.swagger.v3.jaxrs2.integration.jakarta");
-        register(OpenApiResource.class);
+
+        property("jersey.config.server.staticContentRegex", "/webjars/(.*)");
     }
 }

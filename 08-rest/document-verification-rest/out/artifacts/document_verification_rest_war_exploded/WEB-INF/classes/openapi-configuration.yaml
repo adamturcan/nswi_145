@@ -1,6 +1,0 @@
-openAPI:
-  info:
-    title: Document Verification API
-    version: "1.0"
-  servers:
-    - url: /document_verification/api

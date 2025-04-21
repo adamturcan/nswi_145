@@ -1,0 +1,1 @@
+- uml obsahuje popisane sluzby document verification a payment processing z predchadzajucich rieseni

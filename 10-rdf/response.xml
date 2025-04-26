@@ -1,0 +1,11 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns2:verifyDocumentsResponse xmlns:ns2="http://services.university.com/">
+            <return>
+                <comment>Verification successful.</comment>
+                <studentId>1234</studentId>
+                <verified>true</verified>
+            </return>
+        </ns2:verifyDocumentsResponse>
+    </S:Body>
+</S:Envelope>

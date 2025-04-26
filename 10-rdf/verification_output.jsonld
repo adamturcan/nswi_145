@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "ex": "http://example.org/university#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "result": {
+      "@id": "ex:result",
+      "@type": "xsd:boolean"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    }
+  },
+  "@id": "ex:verification_1234",
+  "@type": "ex:VerificationRequest",
+  "identifier": "1234",
+  "result": true,
+  "description": "Verification successful."
+}

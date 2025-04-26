@@ -1,0 +1,48 @@
+@prefix ex: <http://example.org/university#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+ex:VerificationRequest a schema:Action ;
+  rdfs:label "Verification Request" ;
+  rdfs:comment "A request to verify a document submitted by a student." .
+
+
+ex:requestedVerification a rdf:Property ;
+  rdfs:domain foaf:Person ;
+  rdfs:range ex:VerificationRequest ;
+  rdfs:label "requested verification" ;
+  rdfs:comment "Links a person to a verification request they initiated." .
+
+ex:result a rdf:Property ;
+  rdfs:domain ex:VerificationRequest ;
+  rdfs:range xsd:boolean ;
+  rdfs:label "result" ;
+  rdfs:comment "The outcome of a verification request (true if verified, false otherwise)." .
+
+
+
+
+ex:PaymentRequest a schema:Action ;
+  rdfs:label "Payment Request" ;
+  rdfs:comment "A request for payment initiated by a student for document verification or other services." .
+
+ex:paymentMethod a rdf:Property ;
+  rdfs:domain ex:PaymentRequest ;
+  rdfs:range xsd:string ;
+  rdfs:label "payment method" ;
+  rdfs:comment "A method chosen for a payment request (eg. card, cash)" .
+
+ex:dateIssued a rdf:Property ;
+  rdfs:domain ex:PaymentRequest ;
+  rdfs:range xsd:date ;
+  rdfs:label "date issued" ;
+  rdfs:comment "A date that a payment has been issued on" .
+  
+ex:requestedPayment a rdf:Property ;
+  rdfs:domain foaf:Person ;
+  rdfs:range ex:PaymentRequest ;
+  rdfs:label "requested payment" ;
+  rdfs:comment "Links a person to a payment request they initiated." .

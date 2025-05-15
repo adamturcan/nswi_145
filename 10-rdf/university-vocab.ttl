@@ -6,43 +6,39 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 ex:VerificationRequest a schema:Action ;
-  rdfs:label "Verification Request" ;
-  rdfs:comment "A request to verify a document submitted by a student." .
-
+  rdfs:label "Verification Request"@en ;
+  rdfs:comment "A request to verify a document submitted by a student."@en .
 
 ex:requestedVerification a rdf:Property ;
   rdfs:domain foaf:Person ;
   rdfs:range ex:VerificationRequest ;
-  rdfs:label "requested verification" ;
-  rdfs:comment "Links a person to a verification request they initiated." .
+  rdfs:label "requested verification"@en ;
+  rdfs:comment "Links a person to a verification request they initiated."@en .
 
 ex:result a rdf:Property ;
   rdfs:domain ex:VerificationRequest ;
   rdfs:range xsd:boolean ;
-  rdfs:label "result" ;
-  rdfs:comment "The outcome of a verification request (true if verified, false otherwise)." .
-
-
-
+  rdfs:label "result"@en ;
+  rdfs:comment "The outcome of a verification request (true if verified, false otherwise)."@en .
 
 ex:PaymentRequest a schema:Action ;
-  rdfs:label "Payment Request" ;
-  rdfs:comment "A request for payment initiated by a student for document verification or other services." .
+  rdfs:label "Payment Request"@en ;
+  rdfs:comment "A request for payment initiated by a student for document verification or other services."@en .
 
 ex:paymentMethod a rdf:Property ;
   rdfs:domain ex:PaymentRequest ;
   rdfs:range xsd:string ;
-  rdfs:label "payment method" ;
-  rdfs:comment "A method chosen for a payment request (eg. card, cash)" .
+  rdfs:label "payment method"@en ;
+  rdfs:comment "A method chosen for a payment request (e.g., card, cash)."@en .
 
 ex:dateIssued a rdf:Property ;
   rdfs:domain ex:PaymentRequest ;
   rdfs:range xsd:date ;
-  rdfs:label "date issued" ;
-  rdfs:comment "A date that a payment has been issued on" .
-  
+  rdfs:label "date issued"@en ;
+  rdfs:comment "The date a payment was issued."@en .
+
 ex:requestedPayment a rdf:Property ;
   rdfs:domain foaf:Person ;
   rdfs:range ex:PaymentRequest ;
-  rdfs:label "requested payment" ;
-  rdfs:comment "Links a person to a payment request they initiated." .
+  rdfs:label "requested payment"@en ;
+  rdfs:comment "Links a person to a payment request they initiated."@en .

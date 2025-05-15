@@ -30,7 +30,7 @@
 
     <xsl:text>&#10;  schema:description "</xsl:text>
     <xsl:value-of select="//ns2:verifyDocumentsResponse/return/comment"/>
-    <xsl:text>"^^xsd:string .</xsl:text>
+    <xsl:text>"@en .</xsl:text>
   </xsl:template>
 
 </xsl:stylesheet>

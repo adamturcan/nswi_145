@@ -3,6 +3,6 @@
 @prefix schema: <http://schema.org/> .
 
 ex:verification_1234 a ex:VerificationRequest ;
-  schema:identifier "1234" ;
+  schema:identifier "1234"^^xsd:string ;
   ex:result "true"^^xsd:boolean ;
-  schema:description "Verification successful." .
+  schema:description "Verification successful."@en .

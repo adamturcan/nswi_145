@@ -2,7 +2,6 @@
   "@context": {
     "ex": "http://example.org/university#",
     "schema": "http://schema.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "identifier": {
       "@id": "schema:identifier",
       "@type": "xsd:string"
@@ -13,7 +12,7 @@
     },
     "description": {
       "@id": "schema:description",
-      "@type": "xsd:string"
+      "@language": "en"
     }
   },
   "@id": "ex:verification_1234",
